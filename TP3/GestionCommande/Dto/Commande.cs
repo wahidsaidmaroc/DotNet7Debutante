@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Dto
 {
-    public class Produit
+    public class Commande
     {
         public int Id { get; set; }
-        public string NomProduit { get; set; } = string.Empty;
+        public DateTime DateCommande { get; set; }
+        public decimal TotalCommande { get; set; }
     }
 }

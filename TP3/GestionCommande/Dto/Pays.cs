@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dto
 {
-    public class Produit
+    public record Pays
     {
         public int Id { get; set; }
-        public string NomProduit { get; set; } = string.Empty;
+        public string NomPays { get; set; }= string.Empty;
     }
 }
