@@ -1,16 +1,30 @@
-﻿namespace Services;
+﻿
 
-public class PaysService
+
+using Services;
+
+ProduitService service = new ProduitService();
+
+var list = service.GetProduitsStatic();
+
+
+var listProduitNomId = (from a in service.GetProduitsStatic()
+                  where a.NomProduit.Contains("PC Port")
+                  select new {a.Id, a.NomProduit, etatObj = true ,dateCreation =DateTime.Now}).ToList();
+
+var listParMethod = service.GetProduitsStatic()
+                        .Where(i => i.NomProduit.Contains("Said"))
+                        .Select(a => new { a.NomProduit, a.Id })
+                        .ToList();
+
+
+
+var listPCPortable = new List<Produit>();
+foreach (var item in service.GetProduitsStatic())
 {
+	if (item.NomProduit.Contains("PC Portable"))
+	{
+        listPCPortable.Add(item);
 
-    public  Dictionary<Pays, List<string>> getPays()
-    {
-        var list = new Dictionary<Pays, List<string>>();
-        list.Add(new Pays() { Id = 1, NomPays = "Maroc" }, new List<string>() { "Casa", "Rabat", "Fes" });
-        list.Add(new Pays() { Id = 1, NomPays = "France" }, new List<string>() { "Paris", "Nanet"});
-        list.Add(new Pays() { Id = 1, NomPays = "USA" }, new List<string>() { "Newyork"});
-        list.Add(new Pays() { Id = 1, NomPays = "Japon"}, new List<string>() { "Tokoyo"});
-        return list;
     }
-
 }
