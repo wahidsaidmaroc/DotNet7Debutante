@@ -1,10 +1,17 @@
 ﻿using Dto;
 using Services;
 
+
+
+
 ClientService serviceClient = new ClientService();
 Client cl = new Client();
+Console.WriteLine ("Gestion commercial");
 
-bool validationAjouter = false;
+
+
+
+bool validationAjouter = true;
 
 while (validationAjouter)
 {
@@ -16,6 +23,6 @@ while (validationAjouter)
     {
         Console.WriteLine(m);
     }else
-        validationAjouter = true;
+        validationAjouter = false;
 
 }
