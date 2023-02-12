@@ -23,7 +23,6 @@ namespace API.Controllers
         [HttpGet]
         public List<TClient> Get()
         {
-           
             return _clientService.GetList().Result;
         }
 

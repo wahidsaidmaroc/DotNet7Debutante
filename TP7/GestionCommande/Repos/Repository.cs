@@ -25,6 +25,8 @@ public class Repository<T> : IRepository<T> where T : class
         DbSet.Remove(entity);
     }
 
+
+
     public async Task<List<T>> GetAsync()
     {
         return await DbSet.ToListAsync<T>();
